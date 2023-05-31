@@ -1,0 +1,7 @@
+# firework.admin - permission
+# /firework give {player} {amount}
+
+firework:
+  displayname: "&cBez limitu"
+  lore: []
+  glow: true

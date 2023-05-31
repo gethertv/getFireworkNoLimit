@@ -1,0 +1,7 @@
+name: GetFireworkNoLimit
+version: '${project.version}'
+main: dev.gether.getfireworknolimit.GetFireworkNoLimit
+api-version: 1.16
+authors: [ gether ]
+website: gether.dev
+softdepend: [Szaman]
