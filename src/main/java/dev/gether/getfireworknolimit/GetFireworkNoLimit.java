@@ -42,7 +42,7 @@ public final class GetFireworkNoLimit extends JavaPlugin {
 
         getServer().getPluginManager().registerEvents(new InteractionListener(this), this);
 
-        getServer().getCommandMap().register("getfirework", new FireworkNoLimitCmd("getfirework"));
+        new FireworkNoLimitCmd(this, "getfirework");
     }
 
     @Override

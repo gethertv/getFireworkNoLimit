@@ -5,19 +5,32 @@ import dev.gether.getfireworknolimit.utils.ColorFixer;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-public class FireworkNoLimitCmd extends Command {
+import java.util.List;
 
-    public FireworkNoLimitCmd(@NotNull String name) {
-        super(name);
+public class FireworkNoLimitCmd implements TabExecutor {
+
+    public FireworkNoLimitCmd(GetFireworkNoLimit plugin, @NotNull String name) {
+        plugin.getCommand(name).setExecutor(this);
+        plugin.getCommand(name).setTabCompleter(this);
+    }
+        private boolean isInt(String input)
+    {
+        try{
+            int a = Integer.parseInt(input);
+            return true;
+        } catch (NumberFormatException ignored) {}
+
+        return false;
     }
 
-
     @Override
-    public boolean execute(@NotNull CommandSender sender, @NotNull String commandLabel, @NotNull String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if(!sender.hasPermission("firework.admin"))
             return false;
 
@@ -47,13 +60,8 @@ public class FireworkNoLimitCmd extends Command {
         return false;
     }
 
-    private boolean isInt(String input)
-    {
-        try{
-            int a = Integer.parseInt(input);
-            return true;
-        } catch (NumberFormatException ignored) {}
-
-        return false;
+    @Override
+    public @Nullable List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias, @NotNull String[] args) {
+        return null;
     }
 }

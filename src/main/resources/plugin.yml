@@ -5,3 +5,5 @@ api-version: 1.16
 authors: [ gether ]
 website: gether.dev
 softdepend: [Szaman]
+commands:
+  getfirework:

@@ -27,7 +27,8 @@ public class InteractionListener implements Listener {
     public void onInteract(PlayerInteractEvent event)
     {
         Player player = event.getPlayer();
-        if(player.getItemInHand().isSimilar(GetFireworkNoLimit.getInstance().getFireworkNoLimit())) {
+        if(player.getItemInHand().isSimilar(GetFireworkNoLimit.getInstance().getFireworkNoLimit())
+                || player.getInventory().getItemInOffHand().isSimilar(GetFireworkNoLimit.getInstance().getFireworkNoLimit())) {
             ItemStack item = player.getItemInHand();
             ItemMeta itemMeta = item.getItemMeta();
             if (player.isGliding()) {
